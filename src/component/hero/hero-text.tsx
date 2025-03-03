@@ -16,7 +16,7 @@ const HeroText = () => {
         className="absolute right-10 hidden md:flex bottom-10 w-[400px]"
         alt=""
       />
-      <p className="italic absolute bottom-[220px] md:bottom-[60px] left-[50px] text-white text-[20px] md:text-[30px]">"Red Bull gives you wings."</p>
+      <p className="italic absolute bottom-[120px] md:bottom-[60px] left-[50px] text-white text-[20px] md:text-[30px]">"Red Bull gives you wings."</p>
     </>
   );
 };
