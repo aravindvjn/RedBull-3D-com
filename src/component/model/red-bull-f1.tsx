@@ -1,26 +1,13 @@
 import * as THREE from "three";
-import React, { JSX, useRef, useState } from "react";
+import React, { JSX, useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
 import { useFrame } from "@react-three/fiber";
-
-type GLTFResult = GLTF & {
-  nodes: {
-    RedBull_V2_lp_Formula_1_Car_0: THREE.Mesh;
-    RearRightTyre_Formula_1_Car_0: THREE.Mesh;
-    FrontRightTyre_Formula_1_Car_0: THREE.Mesh;
-    FrontLeftTyre_Formula_1_Car_0: THREE.Mesh;
-    RearLeftTyre_Formula_1_Car_0: THREE.Mesh;
-  };
-  materials: {
-    Formula_1_Car: THREE.MeshStandardMaterial;
-  };
-};
+import { GLTFResultF1 } from "./type";
 
 export function RedBullF1Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/models/red_bull_racing_but_with_detached_tyres.glb"
-  ) as GLTFResult;
+  ) as GLTFResultF1;
 
   const [time, setTime] = useState(0);
 
@@ -36,18 +23,28 @@ export function RedBullF1Model(props: JSX.IntrinsicElements["group"]) {
   });
 
   useFrame((state, delta) => {
+
     if (!carRef.current) return;
 
-    setTime((prev) => prev + delta);
+    if (carRef.current.position.z < -10) {
+      carRef.current.position.z += 20;
+    } else {
+      setTime((prev) => prev + delta);
 
-    carRef.current.position.z =  Math.sin(time) * 5;
-    carRef.current.position.x = Math.sin(time) * 10;
-
+      carRef.current.position.z = Math.sin(time) * 5;
+      carRef.current.position.x = Math.sin(time) * 10;
+    }
   });
+
+  useEffect(() => {
+    if (!carRef.current) return;
+    carRef.current.position.z = -1000;
+    carRef.current.visible = true;
+  }, []);
 
   return (
     <group {...props} dispose={null}>
-      <group ref={carRef} name="Sketchfab_Scene">
+      <group visible={false} ref={carRef} name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group
             name="Red_Bull_detached_tyresfbx"

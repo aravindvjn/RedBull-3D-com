@@ -3,20 +3,11 @@ import React, { JSX, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { useFrame } from "@react-three/fiber";
+import { GLTFResultDrink } from "./type";
 
-type GLTFResult = GLTF & {
-  nodes: {
-    pCylinder7_aiStandardSurface1_0: THREE.Mesh;
-    pCylinder6_aiStandardSurface1_0: THREE.Mesh;
-    pCylinder5_aiStandardSurface1_0: THREE.Mesh;
-  };
-  materials: {
-    aiStandardSurface1: THREE.MeshPhysicalMaterial;
-  };
-};
 
 export function RedBullDrink(props: JSX.IntrinsicElements["group"]) {
-  const { nodes, materials } = useGLTF("/models/redbull_can.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/models/redbull_can.glb") as GLTFResultDrink;
 
   const canRef = useRef<THREE.Object3D>(null);
 

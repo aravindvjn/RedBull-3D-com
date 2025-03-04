@@ -1,6 +1,6 @@
 "use client";
 import { Canvas, useThree } from "@react-three/fiber";
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback} from "react";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { RedBullF1Model } from "../model/red-bull-f1";
 import * as THREE from "three";

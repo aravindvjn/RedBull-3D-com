@@ -37,3 +37,7 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+button:active {
+  transform: translateY(3px);
+}

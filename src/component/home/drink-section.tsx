@@ -4,7 +4,7 @@ import DrinkContent from "../drink/content";
 
 const DrinkSection = () => {
   return (
-    <div id="drink" className=" h-screen bg-[#1F3D7A]">
+    <div id="drink" className="h-screen bg-[#1F3D7A]">
       <DrinkContent/>
       <DrinkCanvasViewer />
     </div>

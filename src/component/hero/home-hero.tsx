@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ModelViewer from "../car/model-viewer";
 import HeroText from "./hero-text";
 import NavBar from "../common/nav-bar";
@@ -8,7 +8,9 @@ const HomeHero = () => {
     <div className=" h-screen hero-section relative">
       <NavBar />
       <HeroText />
-      <ModelViewer />
+      <Suspense>
+        <ModelViewer />
+      </Suspense>
     </div>
   );
 };
