@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SingleCell from "./single-cell";
 
 const F1CarShowCase = () => {
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isReverse, setIsReverse] = useState<boolean>(false);
@@ -15,6 +16,7 @@ const F1CarShowCase = () => {
     const scrollAmount = 2;
     let interval: NodeJS.Timeout;
 
+    //scroll the list automatically until mouse enters
     const startScrolling = () => {
       interval = setInterval(() => {
         if (!isPaused) {

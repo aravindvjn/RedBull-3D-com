@@ -15,10 +15,14 @@ import ProgressStatus from "../common/progress-status";
 const INITIAL_CAMERA_POSITION = [60, 65, 50];
 
 const ResponsiveCamera = () => {
+
+  //Get camera elemnt to set camera
   const { camera } = useThree();
 
+  //update camera based on the screen width
   const updateCamera = useCallback(() => {
     const scale = Math.max(Math.min(1000 / window.innerWidth, 15), 1.7);
+
     camera.position.set(
       INITIAL_CAMERA_POSITION[0] * scale,
       INITIAL_CAMERA_POSITION[1] * scale,
@@ -28,6 +32,8 @@ const ResponsiveCamera = () => {
     camera.updateProjectionMatrix();
   }, [camera]);
 
+
+  //Listen to resize event and trigger update camera
   useEffect(() => {
     updateCamera();
 
@@ -40,6 +46,8 @@ const ResponsiveCamera = () => {
 };
 
 const ModelViewer = () => {
+
+  //Get progess to show loading bar
   const { progress } = useProgress();
 
   if (progress < 100) {
@@ -48,11 +56,14 @@ const ModelViewer = () => {
 
   return (
     <Canvas className="absolute flex min-w-dvw justify-center items-center">
+
       <ambientLight intensity={1} />
       <Environment preset="studio" />
+
       <Suspense fallback={<ProgressStatus progress={progress} />}>
         <RedBullF1Model scale={[1, 1, 1]} />
       </Suspense>
+
       <ContactShadows
         opacity={0.8}
         scale={200}
@@ -60,10 +71,10 @@ const ModelViewer = () => {
         far={20}
         resolution={1024}
       />
+
       <OrbitControls enableZoom={false} enableRotate={false} />
       <ResponsiveCamera />
-      <Html>
-      </Html>
+
     </Canvas>
   );
 };

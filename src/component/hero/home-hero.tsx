@@ -6,9 +6,11 @@ import NavBar from "../common/nav-bar";
 const HomeHero = () => {
   return (
     <div className=" h-screen hero-section relative">
+
       <NavBar />
       <HeroText />
       <ModelViewer />
+      
     </div>
   );
 };

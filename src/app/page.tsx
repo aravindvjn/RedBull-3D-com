@@ -1,6 +1,5 @@
 import Footer from "@/component/common/footer";
 import HomeHero from "@/component/hero/home-hero";
-import AboutSection from "@/component/home/about-section";
 import DrinkSection from "@/component/home/drink-section";
 import DrinksShowCase from "@/component/home/drinks-show-case";
 import RedBullCar from "@/component/home/f1-car";
@@ -19,7 +18,6 @@ export default function Home() {
       <Suspense>
         <DrinksShowCase />
       </Suspense>
-      <AboutSection />
       <Footer />
     </>
   );

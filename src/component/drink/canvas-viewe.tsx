@@ -9,7 +9,9 @@ const ResponsiveCamera = () => {
   const { camera, size } = useThree<any>();
   const [fov, setFov] = useState(35);
 
+  //Update camera and fov to make the component responsive
   useEffect(() => {
+
     if (size.width < 768) {
       setFov(50);
       camera.position.set(300, 200, 240);
@@ -17,8 +19,10 @@ const ResponsiveCamera = () => {
       setFov(35);
       camera.position.set(240, 180, 230);
     }
+
     camera.fov = fov;
     camera.updateProjectionMatrix();
+
   }, [size.width, camera, fov]);
 
   return null;
@@ -27,9 +31,11 @@ const ResponsiveCamera = () => {
 const DrinkCanvasViewer = () => {
   return (
     <Canvas className="absolute flex min-w-dvw justify-center items-center">
+
       <ambientLight intensity={1} />
       <Environment preset="studio" />
       <RedBullDrink scale={[0.45, 0.45, 0.45]} />
+
       <ContactShadows
         opacity={0.8} 
         scale={200} 
@@ -40,6 +46,7 @@ const DrinkCanvasViewer = () => {
 
       <OrbitControls enableZoom={false} enableRotate={false}  />
       <ResponsiveCamera />
+      
     </Canvas>
   );
 };

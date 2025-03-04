@@ -6,6 +6,7 @@ import { GLTFResultDrink } from "./type";
 
 
 export function RedBullDrink(props: JSX.IntrinsicElements["group"]) {
+  
   const { nodes, materials } = useGLTF("/models/redbull_can.glb") as GLTFResultDrink;
 
   const canRef = useRef<THREE.Object3D>(null);
