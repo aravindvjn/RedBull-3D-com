@@ -50,7 +50,7 @@ const ModelViewer = () => {
     <Canvas className="absolute flex min-w-dvw justify-center items-center">
       <ambientLight intensity={1} />
       <Environment preset="studio" />
-      <Suspense>
+      <Suspense fallback={<ProgressStatus progress={progress} />}>
         <RedBullF1Model scale={[1, 1, 1]} />
       </Suspense>
       <ContactShadows
