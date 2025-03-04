@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import React, { JSX, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
 import { useFrame } from "@react-three/fiber";
 import { GLTFResultDrink } from "./type";
 

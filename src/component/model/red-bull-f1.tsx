@@ -27,7 +27,7 @@ export function RedBullF1Model(props: JSX.IntrinsicElements["group"]) {
     if (!carRef.current) return;
 
     if (carRef.current.position.z < -10) {
-      carRef.current.position.z += 20;
+      carRef.current.position.z += 30;
     } else {
       setTime((prev) => prev + delta);
 
@@ -38,7 +38,7 @@ export function RedBullF1Model(props: JSX.IntrinsicElements["group"]) {
 
   useEffect(() => {
     if (!carRef.current) return;
-    carRef.current.position.z = -1000;
+    carRef.current.position.z = -700;
     carRef.current.visible = true;
   }, []);
 

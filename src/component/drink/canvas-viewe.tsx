@@ -2,10 +2,10 @@
 import { Canvas, useThree } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
-import { RedBullF1Model } from "../model/red-bull-f1";
 import { RedBullDrink } from "../model/red-bull-drink";
 
 const ResponsiveCamera = () => {
+// eslint-disable-next-line
   const { camera, size } = useThree<any>();
   const [fov, setFov] = useState(35);
 
