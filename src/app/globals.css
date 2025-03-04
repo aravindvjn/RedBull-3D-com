@@ -14,11 +14,21 @@ body {
 .hero-section {
   background-size: cover;
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  background: linear-gradient(18deg, #fe0004, #000000);
-  background-size: 120% 120%;
-  animation: gradient-animation 12s ease infinite;
+  background: url("/images/background.jpeg");
+  background-size: 100% 100%;
+  background-position: center;
 }
 
+.hero-section:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(18deg, #ff0206de, #000000f6);
+  animation: gradient-animation 12s ease infinite;
+}
 
 @keyframes gradient-animation {
   0% {
